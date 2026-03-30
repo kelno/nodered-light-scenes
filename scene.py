@@ -10,10 +10,11 @@ from pathlib import Path
 @dataclass(frozen=True)
 class LightData:
     brightness: int
-    color: dict[str, float]
-    color_mode: str
-    color_temp: str
     state: str
+    color: dict[str, float] | None = None
+    color_mode: str | None = None
+    color_temp: str | None = None
+    effect: str | None = None
 
 
 @dataclass(frozen=True)
@@ -110,12 +111,6 @@ class SceneManager:
         """Parse a raw light data payload into LightData (ignore extra fields)."""
         try:
             brightness = int(data["brightness"])
-            color = data["color"]
-            if not isinstance(color, dict):
-                raise ValueError("color must be object")
-            color_clean = {str(k): float(v) for k, v in color.items()}
-            color_mode = str(data["color_mode"])
-            color_temp = str(data["color_temp"])
             state = str(data["state"])
         except KeyError as e:
             self.logger.warning(f"Skipping light '{light_name}': missing required field {e}")
@@ -124,12 +119,24 @@ class SceneManager:
             self.logger.warning(f"Skipping light '{light_name}': invalid data {e}")
             return None
 
+        # Optional fields
+        color = data.get("color")
+        if color is not None and not isinstance(color, dict):
+            self.logger.warning(f"Skipping light '{light_name}': color must be object if present")
+            return None
+        color_clean = {str(k): float(v) for k, v in color.items()} if color else None
+
+        color_mode = str(data["color_mode"]) if "color_mode" in data else None
+        color_temp = str(data["color_temp"]) if "color_temp" in data else None
+        effect = str(data["effect"]) if "effect" in data else None
+
         return LightData(
             brightness=brightness,
+            state=state,
             color=color_clean,
             color_mode=color_mode,
             color_temp=color_temp,
-            state=state,
+            effect=effect,
         )
 
     def _load_scene_lights_from_file(self, source_path: Path) -> dict[str, LightData] | None:

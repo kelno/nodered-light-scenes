@@ -1,0 +1,17 @@
+[project]
+name = "nodered-light-scenes"
+version = "0.1.0"
+description = "Light scenes handling script for Nodered"
+authors = [{ name = "Kelno", email = "kelnowm@gmail.com" }]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+]
+
+[project.optional-dependencies]
+dev = [
+   "black",
+]
+
+[tool.black]
+line-length = 160

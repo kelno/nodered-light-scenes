@@ -12,6 +12,9 @@ class Scene:
 
     name: str
 
+    def to_json(self) -> str:
+        return json.dumps(asdict(self))
+
 
 class SceneManager:
     """Manages scene operations and persistence."""
@@ -77,13 +80,13 @@ class SceneManager:
         self.logger.info(f"Retrieved {len(scene_names)} scenes")
         return json.dumps(scene_names)
 
-    def get_scene(self, scene_name: str) -> str:
+    def get_scene(self, scene_name: str) -> Scene | None:
         """Return scene data in json format"""
         if scene_name not in self.scenes:
             self.logger.warning(f"Scene '{scene_name}' not found")
-            return "{}"
+            return None
 
-        return json.dumps(asdict(self.scenes[scene_name]))
+        return self.scenes[scene_name]
 
     def create_scene(self, scene_name: str) -> bool:
         """Create a new scene."""
@@ -94,6 +97,17 @@ class SceneManager:
         self.scenes[scene_name] = Scene(name=scene_name)
         self._save_scenes()
         self.logger.info(f"Created scene '{scene_name}'")
+        return True
+
+    def update_scene(self, scene_name: str) -> bool:
+        """Create a new scene."""
+        if scene_name not in self.scenes:
+            self.logger.warning(f"Scene '{scene_name}' not found")
+            return False
+
+        # NYI update scene self.scenes[scene_name] = Scene(name=scene_name)
+        self._save_scenes()
+        self.logger.info(f"Updated scene '{scene_name}'")
         return True
 
     def delete_scene(self, scene_name: str) -> bool:
@@ -146,18 +160,29 @@ def main() -> None:
 
     args = parser.parse_args()
 
+    success = True
+
     if args.command == "list":
         print(manager.list_scenes())
     elif args.command == "apply":
-        manager.apply_scene(args.scene_name)
+        success = manager.apply_scene(args.scene_name)
     elif args.command == "create":
-        manager.create_scene(args.scene_name)
+        success = manager.create_scene(args.scene_name)
+    elif args.command == "update":
+        success = manager.update_scene(args.scene_name)
     elif args.command == "delete":
-        manager.delete_scene(args.scene_name)
+        success = manager.delete_scene(args.scene_name)
     elif args.command == "get":
-        print(manager.get_scene(args.scene_name))
+        if scene := manager.get_scene(args.scene_name):
+            print(scene.to_json())
+            success = True
+        else:
+            print("{}")
+            success = False
     else:
         parser.print_help()
+
+    sys.exit(0 if success else 1)
 
 
 if __name__ == "__main__":

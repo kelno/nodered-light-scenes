@@ -76,7 +76,7 @@ class SceneManager:
                             if isinstance(payload, dict) and (light := self._parse_light_data(light_name, payload)):
                                 lights[light_name] = light
 
-                self.scenes[scene_name] = Scene(name=scene_name, lights=lights)
+                self.scenes[scene_name] = Scene(lights=lights)
             self.logger.debug(f"Loaded {len(self.scenes)} scenes from {self.scenes_file}")
         except (json.JSONDecodeError, KeyError) as e:
             self.logger.error(f"Error loading scenes: {e}")

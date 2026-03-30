@@ -121,16 +121,6 @@ class SceneManager:
         self.logger.info(f"Deleted scene '{scene_name}'")
         return True
 
-    def apply_scene(self, scene_name: str) -> bool:
-        """Apply a scene (stub for future implementation)."""
-        if scene_name not in self.scenes:
-            self.logger.error(f"Scene '{scene_name}' not found")
-            return False
-
-        self.logger.info(f"Applying scene '{scene_name}'")
-        # TODO: Implement scene application logic
-        return True
-
 
 def main() -> None:
     """Main entry point."""
@@ -145,12 +135,11 @@ def main() -> None:
 
     subparsers.add_parser("list", help="Get list of available scenes")
 
-    apply_parser = subparsers.add_parser("apply", help="Apply a scene")
-    apply_parser.add_argument("scene_name", help="Name of the scene to apply")
-
     create_parser = subparsers.add_parser("create", help="Create a new scene")
     create_parser.add_argument("scene_name", help="Name of the scene to create")
-    create_parser.add_argument("--filename", default="", help="Filename for the scene")
+
+    apply_parser = subparsers.add_parser("update", help="Update a scene")
+    apply_parser.add_argument("scene_name", help="Name of the scene to update")
 
     delete_parser = subparsers.add_parser("delete", help="Delete a scene")
     delete_parser.add_argument("scene_name", help="Name of the scene to delete")
@@ -164,8 +153,6 @@ def main() -> None:
 
     if args.command == "list":
         print(manager.list_scenes())
-    elif args.command == "apply":
-        success = manager.apply_scene(args.scene_name)
     elif args.command == "create":
         success = manager.create_scene(args.scene_name)
     elif args.command == "update":

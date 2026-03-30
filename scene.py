@@ -23,8 +23,8 @@ class Scene:
     name: str
     lights: dict[str, LightData] = field(default_factory=dict)
 
-    def to_json(self) -> str:
-        return json.dumps(asdict(self))
+    def lights_to_json(self) -> str:
+        return json.dumps(self.lights)
 
 
 class SceneManager:
@@ -68,8 +68,16 @@ class SceneManager:
             with open(self.scenes_file, "r", encoding="utf-8") as f:
                 data = json.load(f)
 
-            for scene_name, _scene_data in data.items():
-                self.scenes[scene_name] = Scene(name=scene_name)
+            for scene_name, scene_data in data.items():
+                lights: dict[str, LightData] = {}
+                if isinstance(scene_data, dict):
+                    raw_lights = scene_data.get("lights")
+                    if isinstance(raw_lights, dict):
+                        for light_name, payload in raw_lights.items():
+                            if isinstance(payload, dict) and (light := self._parse_light_data(light_name, payload)):
+                                lights[light_name] = light
+
+                self.scenes[scene_name] = Scene(name=scene_name, lights=lights)
             self.logger.debug(f"Loaded {len(self.scenes)} scenes from {self.scenes_file}")
         except (json.JSONDecodeError, KeyError) as e:
             self.logger.error(f"Error loading scenes: {e}")
@@ -99,31 +107,93 @@ class SceneManager:
 
         return self.scenes[scene_name]
 
-    def create_scene(self, payload) -> bool:
-        """Create a new scene."""
-        self.logger.debug(f"Received scene data: {payload}")
-        # if scene_name in self.scenes:
-        #     self.logger.warning(f"Scene '{scene_name}' already exists")
-        #     return False
+    def _parse_light_data(self, light_name: str, data: dict) -> LightData | None:
+        """Parse a raw light data payload into LightData (ignore extra fields)."""
+        try:
+            brightness = int(data["brightness"])
+            color = data["color"]
+            if not isinstance(color, dict):
+                raise ValueError("color must be object")
+            color_clean = {str(k): float(v) for k, v in color.items()}
+            color_mode = str(data["color_mode"])
+            color_temp = str(data["color_temp"])
+            state = str(data["state"])
+        except KeyError as e:
+            self.logger.warning(f"Skipping light '{light_name}': missing required field {e}")
+            return None
+        except (TypeError, ValueError) as e:
+            self.logger.warning(f"Skipping light '{light_name}': invalid data {e}")
+            return None
 
-        # self.scenes[scene_name] = Scene(name=scene_name)
-        # self._save_scenes()
-        # self.logger.debug(f"Received scene data: {scene_data}")
-        # self.logger.info(f"Created scene '{scene_name}'")
+        return LightData(
+            brightness=brightness,
+            color=color_clean,
+            color_mode=color_mode,
+            color_temp=color_temp,
+            state=state,
+        )
+
+    def _load_scene_lights_from_file(self, source_path: Path) -> dict[str, LightData] | None:
+        """Load light definitions from a source JSON file."""
+        if not source_path.exists():
+            self.logger.error(f"Source file not found: {source_path}")
+            return None
+
+        try:
+            with open(source_path, "r", encoding="utf-8") as f:
+                raw = json.load(f)
+
+            if not isinstance(raw, dict):
+                self.logger.error(f"Invalid scene source format in {source_path}, expected object")
+                return None
+
+            lights: dict[str, LightData] = {}
+            for light_name, payload in raw.items():
+                if not isinstance(payload, dict):
+                    self.logger.warning(f"Skipping light '{light_name}' because payload is not an object")
+                    continue
+
+                if light := self._parse_light_data(light_name, payload):
+                    lights[light_name] = light
+
+            if not lights:
+                self.logger.error("No valid lights found in source file")
+                return None
+
+            return lights
+
+        except (json.JSONDecodeError, IOError) as e:
+            self.logger.error(f"Error reading source file {source_path}: {e}")
+            return None
+
+    def create_scene(self, scene_name, source_path: Path) -> bool:
+        """Create a new scene by reading light data from source JSON."""
+        if scene_name in self.scenes:
+            self.logger.warning(f"Scene '{scene_name}' already exists")
+            return False
+
+        lights = self._load_scene_lights_from_file(source_path)
+        if lights is None:
+            return False
+
+        self.scenes[scene_name] = Scene(name=scene_name, lights=lights)
+        self._save_scenes()
+        self.logger.info(f"Created scene '{scene_name}' with {len(lights)} lights")
         return True
 
-    def update_scene(self, payload) -> bool:
-        """Create a new scene."""
-        self.logger.debug(f"Received scene data: {payload}")
+    def update_scene(self, scene_name, source_path: Path) -> bool:
+        """Update an existing scene by reading light data from source JSON."""
+        if scene_name not in self.scenes:
+            self.logger.warning(f"Scene '{scene_name}' not found")
+            return False
 
-        # if scene_name not in self.scenes:
-        #     self.logger.warning(f"Scene '{scene_name}' not found")
-        #     return False
+        lights = self._load_scene_lights_from_file(source_path)
+        if lights is None:
+            return False
 
-        # # NYI update scene self.scenes[scene_name] = Scene(name=scene_name)
-        # self._save_scenes()
-        # self.logger.debug(f"Received scene data: {scene_data}")
-        # self.logger.info(f"Updated scene '{scene_name}'")
+        self.scenes[scene_name] = Scene(name=scene_name, lights=lights)
+        self._save_scenes()
+        self.logger.info(f"Updated scene '{scene_name}' with {len(lights)} lights")
         return True
 
     def delete_scene(self, scene_name: str) -> bool:
@@ -152,10 +222,12 @@ def main() -> None:
     subparsers.add_parser("list", help="Get list of available scenes")
 
     create_parser = subparsers.add_parser("create", help="Create a new scene")
-    create_parser.add_argument("payload", help="Raw payload")
+    create_parser.add_argument("scene_name", help="Name of the scene to create")
+    create_parser.add_argument("--source", required=True, help="Path to source JSON file to create scene from")
 
     update_parser = subparsers.add_parser("update", help="Update a scene")
-    update_parser.add_argument("payload", help="Raw payload")
+    update_parser.add_argument("scene_name", help="Name of the scene to update")
+    update_parser.add_argument("--source", required=True, help="Path to source JSON file to update scene from")
 
     delete_parser = subparsers.add_parser("delete", help="Delete a scene")
     delete_parser.add_argument("scene_name", help="Name of the scene to delete")
@@ -170,14 +242,14 @@ def main() -> None:
     if args.command == "list":
         print(manager.list_scenes())
     elif args.command == "create":
-        success = manager.create_scene(args.payload)
+        success = manager.create_scene(args.scene_name, Path(args.source))
     elif args.command == "update":
-        success = manager.update_scene(args.payload)
+        success = manager.update_scene(args.scene_name, Path(args.source))
     elif args.command == "delete":
         success = manager.delete_scene(args.scene_name)
     elif args.command == "get":
         if scene := manager.get_scene(args.scene_name):
-            print(scene.to_json())
+            print(scene.lights_to_json())
             success = True
         else:
             print("{}")

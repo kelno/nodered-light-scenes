@@ -2,7 +2,7 @@ import argparse
 import json
 import logging
 import sys
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, field
 from pathlib import Path
 
 
@@ -21,7 +21,7 @@ class Scene:
     """Represents a light scene configuration."""
 
     name: str
-    lights: dict[str, LightData] = {}
+    lights: dict[str, LightData] = field(default_factory=dict)
 
     def to_json(self) -> str:
         return json.dumps(asdict(self))

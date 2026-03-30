@@ -20,7 +20,6 @@ class LightData:
 class Scene:
     """Represents a light scene configuration."""
 
-    name: str
     lights: dict[str, LightData] = field(default_factory=dict)
 
     def lights_to_json(self) -> str:
@@ -176,7 +175,7 @@ class SceneManager:
         if lights is None:
             return False
 
-        self.scenes[scene_name] = Scene(name=scene_name, lights=lights)
+        self.scenes[scene_name] = Scene(lights=lights)
         self._save_scenes()
         self.logger.info(f"Created scene '{scene_name}' with {len(lights)} lights")
         return True
@@ -191,7 +190,7 @@ class SceneManager:
         if lights is None:
             return False
 
-        self.scenes[scene_name] = Scene(name=scene_name, lights=lights)
+        self.scenes[scene_name] = Scene(lights=lights)
         self._save_scenes()
         self.logger.info(f"Updated scene '{scene_name}' with {len(lights)} lights")
         return True

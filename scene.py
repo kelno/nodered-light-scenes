@@ -6,11 +6,22 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 
 
+# light data such as {"brightness":254,"color":{"x":0.47203459634857003,"y":0.410156969657555},"color_mode":"xy","color_temp":395,"state":"ON"}
+@dataclass(frozen=True)
+class LightData:
+    brightness: int
+    color: dict[str, float]
+    color_mode: str
+    color_temp: str
+    state: str
+
+
 @dataclass(frozen=True)
 class Scene:
     """Represents a light scene configuration."""
 
     name: str
+    lights: dict[str, LightData] = {}
 
     def to_json(self) -> str:
         return json.dumps(asdict(self))
@@ -88,7 +99,7 @@ class SceneManager:
 
         return self.scenes[scene_name]
 
-    def create_scene(self, scene_name: str) -> bool:
+    def create_scene(self, scene_name: str, scene_data) -> bool:
         """Create a new scene."""
         if scene_name in self.scenes:
             self.logger.warning(f"Scene '{scene_name}' already exists")
@@ -96,10 +107,11 @@ class SceneManager:
 
         self.scenes[scene_name] = Scene(name=scene_name)
         self._save_scenes()
+        self.logger.debug(f"Received scene data: {scene_data}")
         self.logger.info(f"Created scene '{scene_name}'")
         return True
 
-    def update_scene(self, scene_name: str) -> bool:
+    def update_scene(self, scene_name: str, scene_data) -> bool:
         """Create a new scene."""
         if scene_name not in self.scenes:
             self.logger.warning(f"Scene '{scene_name}' not found")
@@ -107,6 +119,7 @@ class SceneManager:
 
         # NYI update scene self.scenes[scene_name] = Scene(name=scene_name)
         self._save_scenes()
+        self.logger.debug(f"Received scene data: {scene_data}")
         self.logger.info(f"Updated scene '{scene_name}'")
         return True
 
@@ -137,9 +150,11 @@ def main() -> None:
 
     create_parser = subparsers.add_parser("create", help="Create a new scene")
     create_parser.add_argument("scene_name", help="Name of the scene to create")
+    create_parser.add_argument("scene_data", help="Data of the scene to create")
 
-    apply_parser = subparsers.add_parser("update", help="Update a scene")
-    apply_parser.add_argument("scene_name", help="Name of the scene to update")
+    update_parser = subparsers.add_parser("update", help="Update a scene")
+    update_parser.add_argument("scene_name", help="Name of the scene to update")
+    update_parser.add_argument("scene_data", help="Data of the scene to update")
 
     delete_parser = subparsers.add_parser("delete", help="Delete a scene")
     delete_parser.add_argument("scene_name", help="Name of the scene to delete")
@@ -154,9 +169,9 @@ def main() -> None:
     if args.command == "list":
         print(manager.list_scenes())
     elif args.command == "create":
-        success = manager.create_scene(args.scene_name)
+        success = manager.create_scene(args.scene_name, args.scene_data)
     elif args.command == "update":
-        success = manager.update_scene(args.scene_name)
+        success = manager.update_scene(args.scene_name, args.scene_data)
     elif args.command == "delete":
         success = manager.delete_scene(args.scene_name)
     elif args.command == "get":

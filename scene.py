@@ -99,28 +99,31 @@ class SceneManager:
 
         return self.scenes[scene_name]
 
-    def create_scene(self, scene_name: str, scene_data) -> bool:
+    def create_scene(self, payload) -> bool:
         """Create a new scene."""
-        if scene_name in self.scenes:
-            self.logger.warning(f"Scene '{scene_name}' already exists")
-            return False
+        self.logger.debug(f"Received scene data: {payload}")
+        # if scene_name in self.scenes:
+        #     self.logger.warning(f"Scene '{scene_name}' already exists")
+        #     return False
 
-        self.scenes[scene_name] = Scene(name=scene_name)
-        self._save_scenes()
-        self.logger.debug(f"Received scene data: {scene_data}")
-        self.logger.info(f"Created scene '{scene_name}'")
+        # self.scenes[scene_name] = Scene(name=scene_name)
+        # self._save_scenes()
+        # self.logger.debug(f"Received scene data: {scene_data}")
+        # self.logger.info(f"Created scene '{scene_name}'")
         return True
 
-    def update_scene(self, scene_name: str, scene_data) -> bool:
+    def update_scene(self, payload) -> bool:
         """Create a new scene."""
-        if scene_name not in self.scenes:
-            self.logger.warning(f"Scene '{scene_name}' not found")
-            return False
+        self.logger.debug(f"Received scene data: {payload}")
 
-        # NYI update scene self.scenes[scene_name] = Scene(name=scene_name)
-        self._save_scenes()
-        self.logger.debug(f"Received scene data: {scene_data}")
-        self.logger.info(f"Updated scene '{scene_name}'")
+        # if scene_name not in self.scenes:
+        #     self.logger.warning(f"Scene '{scene_name}' not found")
+        #     return False
+
+        # # NYI update scene self.scenes[scene_name] = Scene(name=scene_name)
+        # self._save_scenes()
+        # self.logger.debug(f"Received scene data: {scene_data}")
+        # self.logger.info(f"Updated scene '{scene_name}'")
         return True
 
     def delete_scene(self, scene_name: str) -> bool:
@@ -149,12 +152,10 @@ def main() -> None:
     subparsers.add_parser("list", help="Get list of available scenes")
 
     create_parser = subparsers.add_parser("create", help="Create a new scene")
-    create_parser.add_argument("scene_name", help="Name of the scene to create")
-    create_parser.add_argument("scene_data", help="Data of the scene to create")
+    create_parser.add_argument("payload", help="Raw payload")
 
     update_parser = subparsers.add_parser("update", help="Update a scene")
-    update_parser.add_argument("scene_name", help="Name of the scene to update")
-    update_parser.add_argument("scene_data", help="Data of the scene to update")
+    update_parser.add_argument("payload", help="Raw payload")
 
     delete_parser = subparsers.add_parser("delete", help="Delete a scene")
     delete_parser.add_argument("scene_name", help="Name of the scene to delete")
@@ -169,9 +170,9 @@ def main() -> None:
     if args.command == "list":
         print(manager.list_scenes())
     elif args.command == "create":
-        success = manager.create_scene(args.scene_name, args.scene_data)
+        success = manager.create_scene(args.payload)
     elif args.command == "update":
-        success = manager.update_scene(args.scene_name, args.scene_data)
+        success = manager.update_scene(args.payload)
     elif args.command == "delete":
         success = manager.delete_scene(args.scene_name)
     elif args.command == "get":

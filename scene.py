@@ -29,7 +29,7 @@ class SceneManager:
         self.logger.setLevel(logging.DEBUG)
 
         # Console handler
-        console_handler = logging.StreamHandler(sys.stdout)
+        console_handler = logging.StreamHandler(sys.stderr)  # only output in err, keep stdout clear
         console_handler.setLevel(logging.INFO)
         console_formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s", datefmt="%Y-%m-%d %H:%M:%S")
         console_handler.setFormatter(console_formatter)

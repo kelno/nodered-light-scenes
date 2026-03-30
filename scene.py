@@ -24,7 +24,7 @@ class Scene:
     lights: dict[str, LightData] = field(default_factory=dict)
 
     def lights_to_json(self) -> str:
-        return json.dumps(self.lights)
+        return json.dumps({name: asdict(light) for name, light in self.lights.items()})
 
 
 class SceneManager:

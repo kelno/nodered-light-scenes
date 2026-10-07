@@ -1,0 +1,2898 @@
+[
+    {
+        "id": "063174ec6e9df992",
+        "type": "tab",
+        "label": "Lights",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "f6a4f2683baf4bc6",
+        "type": "tab",
+        "label": "Apply Preset",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "9d2c033a530cbdeb",
+        "type": "mqtt-broker",
+        "name": "Local Mosquitto",
+        "broker": "127.0.0.1",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "5",
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "6a75ca1c15129b8e",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": false
+    },
+    {
+        "id": "e0799a49ae256603",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#c4630b",
+            "bgPage": "#000000",
+            "groupBg": "#492e44",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "b95d3b4203a25d32",
+        "type": "ui-page",
+        "name": "Bedroom",
+        "ui": "6a75ca1c15129b8e",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "e0799a49ae256603",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "ee088f82a804485c",
+        "type": "ui-group",
+        "name": "Lights - Power",
+        "page": "b95d3b4203a25d32",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "52cfab849196472d",
+        "type": "ui-group",
+        "name": "Presets",
+        "page": "b95d3b4203a25d32",
+        "width": 6,
+        "height": 1,
+        "order": 2,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "2c94f9919aa522dc",
+        "type": "zigbee2mqtt-bridge-config",
+        "name": "Mosquitto",
+        "broker": "9d2c033a530cbdeb",
+        "baseTopic": "zigbee2mqtt",
+        "enabledLogging": false,
+        "allowDeviceStatusRefresh": true
+    },
+    {
+        "id": "7f22cd85f5354a92",
+        "type": "light-scheduler-settings",
+        "name": "Light Scheduler Mons",
+        "latitude": "50.4531",
+        "longitude": "3.8832"
+    },
+    {
+        "id": "4fdbfd9436c3e550",
+        "type": "ui-spacer",
+        "group": "ee088f82a804485c",
+        "name": "spacer",
+        "tooltip": "",
+        "order": 11,
+        "width": "6",
+        "height": 1,
+        "className": ""
+    },
+    {
+        "id": "34d741ac9e867576",
+        "type": "ui-spacer",
+        "group": "ee088f82a804485c",
+        "name": "spacer",
+        "tooltip": "",
+        "order": 7,
+        "width": "6",
+        "height": 1,
+        "className": ""
+    },
+    {
+        "id": "2db640929bb2f9b5",
+        "type": "ui-spacer",
+        "group": "ee088f82a804485c",
+        "name": "spacer",
+        "tooltip": "",
+        "order": 3,
+        "width": "6",
+        "height": 1,
+        "className": ""
+    },
+    {
+        "id": "d8163de8c3d5470c",
+        "type": "ui-group",
+        "name": "Music",
+        "page": "b95d3b4203a25d32",
+        "width": 6,
+        "height": 1,
+        "order": 3,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "1ea3279d64bcbcd7",
+        "type": "mqtt in",
+        "z": "063174ec6e9df992",
+        "d": true,
+        "name": "",
+        "topic": "zigbee2mqtt/#",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "9d2c033a530cbdeb",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 430,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d8d8aafc515e3395",
+        "type": "mqtt out",
+        "z": "063174ec6e9df992",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "9d2c033a530cbdeb",
+        "x": 1450,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "0d7e8fd8dde00de2",
+        "type": "ui-button-group",
+        "z": "063174ec6e9df992",
+        "name": "All Lights",
+        "group": "ee088f82a804485c",
+        "order": 1,
+        "width": "3",
+        "height": "1",
+        "label": "All Lights",
+        "className": "",
+        "rounded": true,
+        "useThemeColors": true,
+        "passthru": false,
+        "options": [
+            {
+                "label": "On",
+                "icon": "I",
+                "value": "{\"state\":\"ON\"}",
+                "valueType": "json",
+                "color": "#009933"
+            },
+            {
+                "label": "Off",
+                "icon": "O",
+                "value": "{\"state\":\"OFF\"}",
+                "valueType": "json",
+                "color": "#999999"
+            }
+        ],
+        "topic": "zigbee2mqtt/bedroom_lights/set",
+        "topicType": "str",
+        "x": 1240,
+        "y": 560,
+        "wires": [
+            [
+                "d8d8aafc515e3395"
+            ]
+        ]
+    },
+    {
+        "id": "c313be71f53ad072",
+        "type": "device-status",
+        "z": "063174ec6e9df992",
+        "name": "Train status",
+        "deviceName": "train",
+        "bridge": "2c94f9919aa522dc",
+        "genericMqttDevice": false,
+        "device": "",
+        "x": 190,
+        "y": 1660,
+        "wires": [
+            [
+                "69040609fb734464",
+                "1b8468d3085d2ec3",
+                "52679e069ab69580",
+                "4767c276a632e605",
+                "67aecf1d83241cd6"
+            ]
+        ]
+    },
+    {
+        "id": "ea61ddebb499bb33",
+        "type": "ui-slider",
+        "z": "063174ec6e9df992",
+        "group": "ee088f82a804485c",
+        "name": "Train Brightness",
+        "label": "Brightness",
+        "tooltip": "",
+        "order": 10,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "outs": "end",
+        "topic": "zigbee2mqtt/train/set",
+        "topicType": "str",
+        "thumbLabel": "true",
+        "showTicks": "always",
+        "min": 0,
+        "max": "254",
+        "step": 1,
+        "className": "",
+        "iconPrepend": "",
+        "iconAppend": "",
+        "color": "",
+        "colorTrack": "",
+        "colorThumb": "",
+        "showTextField": false,
+        "x": 1020,
+        "y": 1760,
+        "wires": [
+            [
+                "bd8626f6d2a2576c"
+            ]
+        ]
+    },
+    {
+        "id": "bd8626f6d2a2576c",
+        "type": "template",
+        "z": "063174ec6e9df992",
+        "name": "Parse brightness",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{ \"brightness\": \"{{ payload }}\" }",
+        "output": "json",
+        "x": 1290,
+        "y": 1760,
+        "wires": [
+            [
+                "5b0ab876f14ec833",
+                "a1cc22cb24dcf8a4"
+            ]
+        ]
+    },
+    {
+        "id": "ad81bd5fce552d60",
+        "type": "template",
+        "z": "063174ec6e9df992",
+        "name": "Parse button",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{ \"state\": \"{{ payload }}\" }",
+        "output": "json",
+        "x": 1290,
+        "y": 1560,
+        "wires": [
+            [
+                "5b0ab876f14ec833"
+            ]
+        ]
+    },
+    {
+        "id": "3814d7f8de74e521",
+        "type": "ui-button-group",
+        "z": "063174ec6e9df992",
+        "name": "Train",
+        "group": "ee088f82a804485c",
+        "order": 8,
+        "width": "3",
+        "height": "1",
+        "label": "Train",
+        "className": "",
+        "rounded": true,
+        "useThemeColors": true,
+        "passthru": false,
+        "options": [
+            {
+                "label": "On",
+                "icon": "I",
+                "value": "ON",
+                "valueType": "str",
+                "color": "#009933"
+            },
+            {
+                "label": "Off",
+                "icon": "O",
+                "value": "OFF",
+                "valueType": "str",
+                "color": "#999999"
+            }
+        ],
+        "topic": "zigbee2mqtt/train/set",
+        "topicType": "str",
+        "x": 1010,
+        "y": 1500,
+        "wires": [
+            [
+                "ad81bd5fce552d60"
+            ]
+        ]
+    },
+    {
+        "id": "cdd6c2bce60e5afb",
+        "type": "device-status",
+        "z": "063174ec6e9df992",
+        "name": "Rustic status",
+        "deviceName": "rustic",
+        "bridge": "2c94f9919aa522dc",
+        "genericMqttDevice": false,
+        "device": "",
+        "x": 190,
+        "y": 1520,
+        "wires": [
+            [
+                "52679e069ab69580",
+                "1b8468d3085d2ec3",
+                "de35b65f7e31b692",
+                "4767c276a632e605",
+                "fb9184ae9d5a1b8f"
+            ]
+        ]
+    },
+    {
+        "id": "e7b81c946eb1f6e7",
+        "type": "ui-slider",
+        "z": "063174ec6e9df992",
+        "group": "ee088f82a804485c",
+        "name": "Rustic Brightness",
+        "label": "Brightness",
+        "tooltip": "",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "outs": "end",
+        "topic": "zigbee2mqtt/rustic/set",
+        "topicType": "str",
+        "thumbLabel": "true",
+        "showTicks": "always",
+        "min": 0,
+        "max": "254",
+        "step": 1,
+        "className": "",
+        "iconPrepend": "",
+        "iconAppend": "",
+        "color": "",
+        "colorTrack": "",
+        "colorThumb": "",
+        "showTextField": false,
+        "x": 1030,
+        "y": 1700,
+        "wires": [
+            [
+                "bd8626f6d2a2576c"
+            ]
+        ]
+    },
+    {
+        "id": "bc98df9777fab656",
+        "type": "ui-button-group",
+        "z": "063174ec6e9df992",
+        "name": "Rustic",
+        "group": "ee088f82a804485c",
+        "order": 4,
+        "width": "3",
+        "height": "1",
+        "label": "Rustic",
+        "className": "",
+        "rounded": true,
+        "useThemeColors": true,
+        "passthru": false,
+        "options": [
+            {
+                "label": "On",
+                "icon": "I",
+                "value": "ON",
+                "valueType": "str",
+                "color": "#009933"
+            },
+            {
+                "label": "Off",
+                "icon": "O",
+                "value": "OFF",
+                "valueType": "str",
+                "color": "#999999"
+            }
+        ],
+        "topic": "zigbee2mqtt/rustic/set",
+        "topicType": "str",
+        "x": 1010,
+        "y": 1440,
+        "wires": [
+            [
+                "ad81bd5fce552d60"
+            ]
+        ]
+    },
+    {
+        "id": "0729de1d7dab588d",
+        "type": "device-status",
+        "z": "063174ec6e9df992",
+        "name": "Street status",
+        "deviceName": "street",
+        "bridge": "2c94f9919aa522dc",
+        "genericMqttDevice": false,
+        "device": "",
+        "x": 190,
+        "y": 1800,
+        "wires": [
+            [
+                "b13fe8e529c3f81d",
+                "1b8468d3085d2ec3",
+                "52679e069ab69580",
+                "4767c276a632e605",
+                "b09ab2b437be19b4"
+            ]
+        ]
+    },
+    {
+        "id": "839dab71d1f2f71a",
+        "type": "ui-slider",
+        "z": "063174ec6e9df992",
+        "group": "ee088f82a804485c",
+        "name": "Street Brightness",
+        "label": "Brightness",
+        "tooltip": "",
+        "order": 14,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "outs": "end",
+        "topic": "zigbee2mqtt/street/set",
+        "topicType": "str",
+        "thumbLabel": "true",
+        "showTicks": "always",
+        "min": 0,
+        "max": "254",
+        "step": 1,
+        "className": "",
+        "iconPrepend": "",
+        "iconAppend": "",
+        "color": "",
+        "colorTrack": "",
+        "colorThumb": "",
+        "showTextField": false,
+        "x": 1030,
+        "y": 1820,
+        "wires": [
+            [
+                "bd8626f6d2a2576c"
+            ]
+        ]
+    },
+    {
+        "id": "f625abeb481830d6",
+        "type": "ui-button-group",
+        "z": "063174ec6e9df992",
+        "name": "Street",
+        "group": "ee088f82a804485c",
+        "order": 12,
+        "width": "3",
+        "height": "1",
+        "label": "Street",
+        "className": "",
+        "rounded": true,
+        "useThemeColors": true,
+        "passthru": false,
+        "options": [
+            {
+                "label": "On",
+                "icon": "I",
+                "value": "ON",
+                "valueType": "str",
+                "color": "#009933"
+            },
+            {
+                "label": "Off",
+                "icon": "O",
+                "value": "OFF",
+                "valueType": "str",
+                "color": "#999999"
+            }
+        ],
+        "topic": "zigbee2mqtt/street/set",
+        "topicType": "str",
+        "x": 1010,
+        "y": 1560,
+        "wires": [
+            [
+                "ad81bd5fce552d60"
+            ]
+        ]
+    },
+    {
+        "id": "5b0ab876f14ec833",
+        "type": "mqtt out",
+        "z": "063174ec6e9df992",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "9d2c033a530cbdeb",
+        "x": 1750,
+        "y": 1700,
+        "wires": []
+    },
+    {
+        "id": "96a3325dfcd797de",
+        "type": "ui-slider",
+        "z": "063174ec6e9df992",
+        "group": "ee088f82a804485c",
+        "name": "All Brightness",
+        "label": "All Brightness",
+        "tooltip": "",
+        "order": 2,
+        "width": "6",
+        "height": "1",
+        "passthru": true,
+        "outs": "end",
+        "topic": "zigbee2mqtt/bedroom_lights/set",
+        "topicType": "str",
+        "thumbLabel": "true",
+        "showTicks": "always",
+        "min": 0,
+        "max": "254",
+        "step": 1,
+        "className": "",
+        "iconPrepend": "",
+        "iconAppend": "",
+        "color": "",
+        "colorTrack": "",
+        "colorThumb": "",
+        "showTextField": false,
+        "x": 520,
+        "y": 580,
+        "wires": [
+            [
+                "ac3bb5eff7af54e9"
+            ]
+        ]
+    },
+    {
+        "id": "ac3bb5eff7af54e9",
+        "type": "template",
+        "z": "063174ec6e9df992",
+        "name": "Format",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{\"brightness\": {{payload}}, \"transition\":0.5 }",
+        "output": "json",
+        "x": 700,
+        "y": 580,
+        "wires": [
+            [
+                "d8d8aafc515e3395"
+            ]
+        ]
+    },
+    {
+        "id": "52679e069ab69580",
+        "type": "template",
+        "z": "063174ec6e9df992",
+        "name": "Parse State",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{ payload.state }}",
+        "output": "str",
+        "x": 630,
+        "y": 1500,
+        "wires": [
+            [
+                "3ce96eb44c78d88d"
+            ]
+        ]
+    },
+    {
+        "id": "1b8468d3085d2ec3",
+        "type": "template",
+        "z": "063174ec6e9df992",
+        "name": "Parse brightness",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{ payload.brightness }}",
+        "output": "str",
+        "x": 630,
+        "y": 1760,
+        "wires": [
+            [
+                "783a7cefa3043d9a"
+            ]
+        ]
+    },
+    {
+        "id": "8dc5ec83f70b41d3",
+        "type": "change",
+        "z": "063174ec6e9df992",
+        "name": "Rustic topic",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "zigbee2mqtt/rustic/set",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1030,
+        "y": 820,
+        "wires": [
+            [
+                "d8d8aafc515e3395"
+            ]
+        ]
+    },
+    {
+        "id": "1da8b581ff05c895",
+        "type": "change",
+        "z": "063174ec6e9df992",
+        "name": "Train topic",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "zigbee2mqtt/train/set",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1030,
+        "y": 860,
+        "wires": [
+            [
+                "d8d8aafc515e3395"
+            ]
+        ]
+    },
+    {
+        "id": "3934c386af9bd03d",
+        "type": "change",
+        "z": "063174ec6e9df992",
+        "name": "Street topic",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "zigbee2mqtt/street/set",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1030,
+        "y": 900,
+        "wires": [
+            [
+                "d8d8aafc515e3395"
+            ]
+        ]
+    },
+    {
+        "id": "69040609fb734464",
+        "type": "debug",
+        "z": "063174ec6e9df992",
+        "name": "train status",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 230,
+        "y": 1620,
+        "wires": []
+    },
+    {
+        "id": "de35b65f7e31b692",
+        "type": "debug",
+        "z": "063174ec6e9df992",
+        "name": "rustic status",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 230,
+        "y": 1480,
+        "wires": []
+    },
+    {
+        "id": "b13fe8e529c3f81d",
+        "type": "debug",
+        "z": "063174ec6e9df992",
+        "name": "street status",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 230,
+        "y": 1760,
+        "wires": []
+    },
+    {
+        "id": "b4ada9d32177af8c",
+        "type": "light-scheduler",
+        "z": "063174ec6e9df992",
+        "d": true,
+        "settings": "7f22cd85f5354a92",
+        "events": "[{\"start\":{\"dow\":2,\"mod\":0},\"end\":{\"dow\":2,\"mod\":180}},{\"start\":{\"dow\":1,\"mod\":0},\"end\":{\"dow\":1,\"mod\":180}},{\"start\":{\"dow\":4,\"mod\":0},\"end\":{\"dow\":4,\"mod\":180}},{\"start\":{\"dow\":5,\"mod\":0},\"end\":{\"dow\":5,\"mod\":180}},{\"start\":{\"dow\":6,\"mod\":0},\"end\":{\"dow\":6,\"mod\":180}},{\"start\":{\"dow\":0,\"mod\":0},\"end\":{\"dow\":0,\"mod\":180}},{\"start\":{\"dow\":3,\"mod\":0},\"end\":{\"dow\":3,\"mod\":180}}]",
+        "topic": "",
+        "name": "Evening Scheduler",
+        "onPayload": "{\"effect\":\"candle\",\"state\":\"ON\",\"transition\":10, \"brightness\":3}",
+        "onPayloadType": "json",
+        "offPayload": "{\"effect\":\"candle\", \"state\":\"OFF\", \"transition\":10}",
+        "offPayloadType": "json",
+        "onlyWhenDark": false,
+        "scheduleRndMax": 0,
+        "sunElevationThreshold": 6,
+        "sunShowElevationInStatus": false,
+        "outputfreq": "output.statechange",
+        "x": 710,
+        "y": 860,
+        "wires": [
+            [
+                "8dc5ec83f70b41d3",
+                "1da8b581ff05c895",
+                "3934c386af9bd03d"
+            ]
+        ]
+    },
+    {
+        "id": "7c9660cdc4b0c22f",
+        "type": "ui-text-input",
+        "z": "063174ec6e9df992",
+        "group": "ee088f82a804485c",
+        "name": "Color Picker Rustic",
+        "label": "Rustic",
+        "order": 5,
+        "width": "3",
+        "height": "1",
+        "topic": "zigbee2mqtt/rustic/set",
+        "topicType": "str",
+        "mode": "color",
+        "tooltip": "Color picker",
+        "delay": 300,
+        "passthru": false,
+        "sendOnDelay": false,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "sendOnClear": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "x": 1000,
+        "y": 1960,
+        "wires": [
+            [
+                "f564868d870b52b8"
+            ]
+        ]
+    },
+    {
+        "id": "c66f36b1c8300081",
+        "type": "ui-text-input",
+        "z": "063174ec6e9df992",
+        "group": "ee088f82a804485c",
+        "name": "Color Picker Train",
+        "label": "Train",
+        "order": 9,
+        "width": "3",
+        "height": "1",
+        "topic": "zigbee2mqtt/train/set",
+        "topicType": "str",
+        "mode": "color",
+        "tooltip": "Color picker",
+        "delay": 300,
+        "passthru": false,
+        "sendOnDelay": false,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "sendOnClear": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "x": 1000,
+        "y": 2000,
+        "wires": [
+            [
+                "f564868d870b52b8"
+            ]
+        ]
+    },
+    {
+        "id": "25c4ae3de45dd69f",
+        "type": "ui-text-input",
+        "z": "063174ec6e9df992",
+        "group": "ee088f82a804485c",
+        "name": "Color Picker Street",
+        "label": "Street",
+        "order": 13,
+        "width": "3",
+        "height": "1",
+        "topic": "zigbee2mqtt/street/set",
+        "topicType": "str",
+        "mode": "color",
+        "tooltip": "Color picker",
+        "delay": 300,
+        "passthru": false,
+        "sendOnDelay": false,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "sendOnClear": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "x": 1000,
+        "y": 2040,
+        "wires": [
+            [
+                "f564868d870b52b8"
+            ]
+        ]
+    },
+    {
+        "id": "f564868d870b52b8",
+        "type": "function",
+        "z": "063174ec6e9df992",
+        "name": "Convert RGB to XY",
+        "func": "var hex = msg.payload\nlet r = parseInt(hex.substr(1, 2), 16) / 255;\nlet g = parseInt(hex.substr(3, 2), 16) / 255;\nlet b = parseInt(hex.substr(5, 2), 16) / 255;\n\nconst lin = c =>\n  c <= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);\n\nr = lin(r);\ng = lin(g);\nb = lin(b);\n\nconst X = r * 0.4124 + g * 0.3576 + b * 0.1805;\nconst Y = r * 0.2126 + g * 0.7152 + b * 0.0722;\nconst Z = r * 0.0193 + g * 0.1192 + b * 0.9505;\n\nconst sum = X + Y + Z;\nmsg.payload = {}\nmsg.payload.color = { x: X / sum, y: Y / sum };\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1240,
+        "y": 2000,
+        "wires": [
+            [
+                "1cc6850066c7bf67"
+            ]
+        ]
+    },
+    {
+        "id": "1cc6850066c7bf67",
+        "type": "change",
+        "z": "063174ec6e9df992",
+        "name": "Base",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.color_mode",
+                "pt": "msg",
+                "to": "xy",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.state",
+                "pt": "msg",
+                "to": "ON",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.transition",
+                "pt": "msg",
+                "to": "0.1",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1410,
+        "y": 2000,
+        "wires": [
+            [
+                "5b0ab876f14ec833",
+                "985cbd24e13eb793"
+            ]
+        ]
+    },
+    {
+        "id": "4767c276a632e605",
+        "type": "function",
+        "z": "063174ec6e9df992",
+        "name": "Convert XY to RGB",
+        "func": "function xyToHex({ x, y }, Y = 1) {\n  if (y === 0) return \"#000000\";\n\n  // xyY → XYZ\n  const X = (x * Y) / y;\n  const Z = ((1 - x - y) * Y) / y;\n\n  // XYZ → linear RGB (sRGB, D65)\n  let r =  3.2406 * X - 1.5372 * Y - 0.4986 * Z;\n  let g = -0.9689 * X + 1.8758 * Y + 0.0415 * Z;\n  let b =  0.0557 * X - 0.2040 * Y + 1.0570 * Z;\n\n  // Clamp negatives\n  r = Math.max(0, r);\n  g = Math.max(0, g);\n  b = Math.max(0, b);\n\n  // Linear → sRGB\n  const gamma = c =>\n    c <= 0.0031308\n      ? 12.92 * c\n      : 1.055 * Math.pow(c, 1 / 2.4) - 0.055;\n\n  r = gamma(r);\n  g = gamma(g);\n  b = gamma(b);\n\n  // Normalize if needed\n  const max = Math.max(r, g, b);\n  if (max > 1) {\n    r /= max;\n    g /= max;\n    b /= max;\n  }\n\n  // To #RRGGBB\n  const toHex = c =>\n    Math.round(c * 255)\n      .toString(16)\n      .padStart(2, \"0\");\n\n  //return `${x}-${y}`;\n  return `#${toHex(r)}${toHex(g)}${toHex(b)}`;\n}\nvar xycolor = msg.payload.color;\nmsg.payload = xyToHex(xycolor);\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 2000,
+        "wires": [
+            [
+                "38183eb57607b884"
+            ]
+        ]
+    },
+    {
+        "id": "38183eb57607b884",
+        "type": "switch",
+        "z": "063174ec6e9df992",
+        "name": "Device switch",
+        "property": "device",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "rustic",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "train",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "street",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 800,
+        "y": 2000,
+        "wires": [
+            [
+                "7c9660cdc4b0c22f"
+            ],
+            [
+                "c66f36b1c8300081"
+            ],
+            [
+                "25c4ae3de45dd69f"
+            ]
+        ]
+    },
+    {
+        "id": "783a7cefa3043d9a",
+        "type": "switch",
+        "z": "063174ec6e9df992",
+        "name": "Device switch",
+        "property": "device",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "rustic",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "train",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "street",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 820,
+        "y": 1760,
+        "wires": [
+            [
+                "e7b81c946eb1f6e7"
+            ],
+            [
+                "ea61ddebb499bb33"
+            ],
+            [
+                "839dab71d1f2f71a"
+            ]
+        ]
+    },
+    {
+        "id": "3ce96eb44c78d88d",
+        "type": "switch",
+        "z": "063174ec6e9df992",
+        "name": "Device switch",
+        "property": "device",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "rustic",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "train",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "street",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 820,
+        "y": 1500,
+        "wires": [
+            [
+                "bc98df9777fab656"
+            ],
+            [
+                "3814d7f8de74e521"
+            ],
+            [
+                "f625abeb481830d6"
+            ]
+        ]
+    },
+    {
+        "id": "985cbd24e13eb793",
+        "type": "debug",
+        "z": "063174ec6e9df992",
+        "name": "debug 2",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1560,
+        "y": 2040,
+        "wires": []
+    },
+    {
+        "id": "a1cc22cb24dcf8a4",
+        "type": "debug",
+        "z": "063174ec6e9df992",
+        "name": "debug 4",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1480,
+        "y": 1800,
+        "wires": []
+    },
+    {
+        "id": "0b25ced12d749fa2",
+        "type": "exec",
+        "z": "063174ec6e9df992",
+        "command": "ffplay -volume 2 /home/pi/Music/morning",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "true",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 780,
+        "y": 1220,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "1f43f4d892936936",
+        "type": "switch",
+        "z": "063174ec6e9df992",
+        "name": "on/off check",
+        "property": "payload.state",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "ON",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "OFF",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 490,
+        "y": 1220,
+        "wires": [
+            [
+                "0b25ced12d749fa2"
+            ],
+            [
+                "a97c6406cc680f6a"
+            ]
+        ]
+    },
+    {
+        "id": "71ce8caba84719f2",
+        "type": "inject",
+        "z": "063174ec6e9df992",
+        "name": "OFF",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "dummy",
+        "payloadType": "str",
+        "x": 150,
+        "y": 1260,
+        "wires": [
+            [
+                "9b574d79caafee80"
+            ]
+        ]
+    },
+    {
+        "id": "a97c6406cc680f6a",
+        "type": "exec",
+        "z": "063174ec6e9df992",
+        "command": "killall ffplay",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "true",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 690,
+        "y": 1280,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "aff9ab2751448e0f",
+        "type": "inject",
+        "z": "063174ec6e9df992",
+        "name": "ON",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "dummy",
+        "payloadType": "str",
+        "x": 150,
+        "y": 1220,
+        "wires": [
+            [
+                "b6221a0ea582cae3"
+            ]
+        ]
+    },
+    {
+        "id": "b6221a0ea582cae3",
+        "type": "ui-button",
+        "z": "063174ec6e9df992",
+        "group": "d8163de8c3d5470c",
+        "name": "Music ON",
+        "label": "Music ON",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "emulateClick": true,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "{\"state\":\"ON\"}",
+        "payloadType": "json",
+        "topic": "",
+        "topicType": "str",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 300,
+        "y": 1220,
+        "wires": [
+            [
+                "1f43f4d892936936"
+            ]
+        ]
+    },
+    {
+        "id": "9b574d79caafee80",
+        "type": "ui-button",
+        "z": "063174ec6e9df992",
+        "group": "d8163de8c3d5470c",
+        "name": "Music OFF",
+        "label": "Music OFF",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "emulateClick": true,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "{\"state\":\"OFF\"}",
+        "payloadType": "json",
+        "topic": "",
+        "topicType": "str",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 310,
+        "y": 1260,
+        "wires": [
+            [
+                "1f43f4d892936936"
+            ]
+        ]
+    },
+    {
+        "id": "e73e64435ea7e930",
+        "type": "exec",
+        "z": "063174ec6e9df992",
+        "command": "python /data/scenes/scene.py list",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 3020,
+        "y": 780,
+        "wires": [
+            [
+                "ab89862dabd77c44"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "ab89862dabd77c44",
+        "type": "change",
+        "z": "063174ec6e9df992",
+        "name": "set to ui_update",
+        "rules": [
+            {
+                "t": "set",
+                "p": "ui_update.options",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 3280,
+        "y": 780,
+        "wires": [
+            [
+                "4f2a23f53908fa69"
+            ]
+        ]
+    },
+    {
+        "id": "477a113fb5145d21",
+        "type": "ui-dropdown",
+        "z": "063174ec6e9df992",
+        "group": "52cfab849196472d",
+        "name": "Select Preset",
+        "label": "Select preset:",
+        "tooltip": "",
+        "order": 1,
+        "width": "0",
+        "height": "0",
+        "passthru": false,
+        "multiple": false,
+        "chips": false,
+        "clearable": false,
+        "options": [
+            {
+                "label": "A",
+                "value": "A",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "typeIsComboBox": true,
+        "msgTrigger": "onChange",
+        "x": 3570,
+        "y": 880,
+        "wires": [
+            [
+                "7de8af511fa38468"
+            ]
+        ]
+    },
+    {
+        "id": "4f2a23f53908fa69",
+        "type": "json",
+        "z": "063174ec6e9df992",
+        "name": "",
+        "property": "ui_update.options",
+        "action": "",
+        "pretty": true,
+        "x": 3430,
+        "y": 780,
+        "wires": [
+            [
+                "477a113fb5145d21"
+            ]
+        ]
+    },
+    {
+        "id": "fa60204832d54bb2",
+        "type": "ui-button",
+        "z": "063174ec6e9df992",
+        "group": "52cfab849196472d",
+        "name": "Refresh",
+        "label": "Refresh",
+        "order": 2,
+        "width": "2",
+        "height": "1",
+        "emulateClick": true,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 2760,
+        "y": 780,
+        "wires": [
+            [
+                "e73e64435ea7e930"
+            ]
+        ]
+    },
+    {
+        "id": "2bd2709c85605931",
+        "type": "ui-button",
+        "z": "063174ec6e9df992",
+        "group": "52cfab849196472d",
+        "name": "Delete",
+        "label": "Delete",
+        "order": 3,
+        "width": "2",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "selected_preset",
+        "payloadType": "flow",
+        "topic": "",
+        "topicType": "str",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 2170,
+        "y": 740,
+        "wires": [
+            [
+                "fa560c79cbef2cee"
+            ]
+        ]
+    },
+    {
+        "id": "0a288686991bcb11",
+        "type": "ui-button",
+        "z": "063174ec6e9df992",
+        "group": "52cfab849196472d",
+        "name": "Update",
+        "label": "Update",
+        "order": 4,
+        "width": "2",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "selected_preset",
+        "payloadType": "flow",
+        "topic": "",
+        "topicType": "str",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 1580,
+        "y": 880,
+        "wires": [
+            [
+                "4be8ab57c2accd1c"
+            ]
+        ]
+    },
+    {
+        "id": "d44aaf4aaa1103fc",
+        "type": "ui-text-input",
+        "z": "063174ec6e9df992",
+        "group": "52cfab849196472d",
+        "name": "New preset name",
+        "label": "New preset name",
+        "order": 5,
+        "width": "3",
+        "height": "1",
+        "topic": "",
+        "topicType": "str",
+        "mode": "text",
+        "tooltip": "",
+        "delay": 300,
+        "passthru": false,
+        "sendOnDelay": false,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": true,
+        "sendOnClear": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "x": 1830,
+        "y": 580,
+        "wires": [
+            [
+                "80005ce665bbf4a4"
+            ]
+        ]
+    },
+    {
+        "id": "881af16473b79f6a",
+        "type": "ui-button",
+        "z": "063174ec6e9df992",
+        "group": "52cfab849196472d",
+        "name": "Create",
+        "label": "Create",
+        "order": 6,
+        "width": "2",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "new_preset_name",
+        "payloadType": "flow",
+        "topic": "",
+        "topicType": "str",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 1590,
+        "y": 820,
+        "wires": [
+            [
+                "f2208dc2b8349cf7"
+            ]
+        ]
+    },
+    {
+        "id": "7de8af511fa38468",
+        "type": "change",
+        "z": "063174ec6e9df992",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "selected_preset",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 3770,
+        "y": 880,
+        "wires": [
+            [
+                "d4a57f13bbd63740"
+            ]
+        ]
+    },
+    {
+        "id": "8d874e1b6dc6cd05",
+        "type": "exec",
+        "z": "063174ec6e9df992",
+        "command": "python /data/scenes/scene.py create ",
+        "addpay": "payload",
+        "append": " --source /data/scenes/create.json",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 2410,
+        "y": 820,
+        "wires": [
+            [],
+            [],
+            [
+                "fa60204832d54bb2",
+                "f16f44d3efd7961e",
+                "1f1430ca4bb790f1"
+            ]
+        ]
+    },
+    {
+        "id": "80005ce665bbf4a4",
+        "type": "change",
+        "z": "063174ec6e9df992",
+        "name": "Save new preset name",
+        "rules": [
+            {
+                "t": "set",
+                "p": "new_preset_name",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2040,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fa560c79cbef2cee",
+        "type": "exec",
+        "z": "063174ec6e9df992",
+        "command": "python /data/scenes/scene.py delete",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 2410,
+        "y": 740,
+        "wires": [
+            [],
+            [],
+            [
+                "fa60204832d54bb2",
+                "1f1430ca4bb790f1"
+            ]
+        ]
+    },
+    {
+        "id": "e3ebd9e799d3fc13",
+        "type": "change",
+        "z": "063174ec6e9df992",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "new_preset_name",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 3000,
+        "y": 880,
+        "wires": [
+            [
+                "477a113fb5145d21"
+            ]
+        ]
+    },
+    {
+        "id": "f16f44d3efd7961e",
+        "type": "exec",
+        "z": "063174ec6e9df992",
+        "command": "sleep 1",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 2800,
+        "y": 880,
+        "wires": [
+            [],
+            [],
+            [
+                "e3ebd9e799d3fc13"
+            ]
+        ]
+    },
+    {
+        "id": "e047f88753f11d89",
+        "type": "ui-notification",
+        "z": "063174ec6e9df992",
+        "ui": "6a75ca1c15129b8e",
+        "position": "top right",
+        "colorDefault": true,
+        "color": "#000000",
+        "displayTime": "3",
+        "showCountdown": true,
+        "outputs": 1,
+        "allowDismiss": true,
+        "dismissText": "Close",
+        "allowConfirm": false,
+        "confirmText": "Confirm",
+        "raw": false,
+        "className": "",
+        "name": "Return values",
+        "x": 2840,
+        "y": 680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1f1430ca4bb790f1",
+        "type": "json",
+        "z": "063174ec6e9df992",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 2670,
+        "y": 700,
+        "wires": [
+            [
+                "e047f88753f11d89"
+            ]
+        ]
+    },
+    {
+        "id": "c5e20b3152377ba8",
+        "type": "exec",
+        "z": "063174ec6e9df992",
+        "command": "python /data/scenes/scene.py update ",
+        "addpay": "payload",
+        "append": "  --source /data/scenes/update.json",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 2410,
+        "y": 880,
+        "wires": [
+            [],
+            [],
+            [
+                "1f1430ca4bb790f1"
+            ]
+        ]
+    },
+    {
+        "id": "67aecf1d83241cd6",
+        "type": "change",
+        "z": "063174ec6e9df992",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "status.train",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 250,
+        "y": 1580,
+        "wires": [
+            [
+                "b514f102d7093259",
+                "9daf4a34647e3528"
+            ]
+        ]
+    },
+    {
+        "id": "fb9184ae9d5a1b8f",
+        "type": "change",
+        "z": "063174ec6e9df992",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "status.rustic",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 260,
+        "y": 1440,
+        "wires": [
+            [
+                "b514f102d7093259",
+                "9daf4a34647e3528"
+            ]
+        ]
+    },
+    {
+        "id": "b09ab2b437be19b4",
+        "type": "change",
+        "z": "063174ec6e9df992",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "status.street",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 260,
+        "y": 1720,
+        "wires": [
+            [
+                "b514f102d7093259",
+                "9daf4a34647e3528"
+            ]
+        ]
+    },
+    {
+        "id": "f2208dc2b8349cf7",
+        "type": "change",
+        "z": "063174ec6e9df992",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "save_name",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "status",
+                "tot": "flow",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1740,
+        "y": 820,
+        "wires": [
+            [
+                "c75999e3867a2722"
+            ]
+        ]
+    },
+    {
+        "id": "c75999e3867a2722",
+        "type": "file",
+        "z": "063174ec6e9df992",
+        "name": "",
+        "filename": "/data/scenes/create.json",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 1950,
+        "y": 820,
+        "wires": [
+            [
+                "e16dda794ccaa237"
+            ]
+        ]
+    },
+    {
+        "id": "e16dda794ccaa237",
+        "type": "change",
+        "z": "063174ec6e9df992",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "save_name",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2160,
+        "y": 820,
+        "wires": [
+            [
+                "8d874e1b6dc6cd05"
+            ]
+        ]
+    },
+    {
+        "id": "4be8ab57c2accd1c",
+        "type": "change",
+        "z": "063174ec6e9df992",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "save_name",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "status",
+                "tot": "flow",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1740,
+        "y": 880,
+        "wires": [
+            [
+                "100def92441c6984"
+            ]
+        ]
+    },
+    {
+        "id": "100def92441c6984",
+        "type": "file",
+        "z": "063174ec6e9df992",
+        "name": "",
+        "filename": "/data/scenes/update.json",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 1950,
+        "y": 880,
+        "wires": [
+            [
+                "fc6285f4755674fa"
+            ]
+        ]
+    },
+    {
+        "id": "fc6285f4755674fa",
+        "type": "change",
+        "z": "063174ec6e9df992",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "save_name",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2160,
+        "y": 880,
+        "wires": [
+            [
+                "c5e20b3152377ba8"
+            ]
+        ]
+    },
+    {
+        "id": "d4a57f13bbd63740",
+        "type": "link call",
+        "z": "063174ec6e9df992",
+        "name": "Apply Preset",
+        "links": [
+            "9a0953940667d610"
+        ],
+        "linkType": "static",
+        "timeout": "30",
+        "x": 3970,
+        "y": 880,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b0972592fa684d8e",
+        "type": "link call",
+        "z": "063174ec6e9df992",
+        "name": "Apply Preset",
+        "links": [
+            "9a0953940667d610"
+        ],
+        "linkType": "static",
+        "timeout": "30",
+        "x": 890,
+        "y": 680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "242cbb219af1af98",
+        "type": "light-scheduler",
+        "z": "063174ec6e9df992",
+        "d": true,
+        "settings": "7f22cd85f5354a92",
+        "events": "[{\"start\":{\"dow\":2,\"mod\":600},\"end\":{\"dow\":2,\"mod\":660}},{\"start\":{\"dow\":3,\"mod\":600},\"end\":{\"dow\":3,\"mod\":660}},{\"start\":{\"dow\":4,\"mod\":600},\"end\":{\"dow\":4,\"mod\":660}},{\"start\":{\"dow\":5,\"mod\":600},\"end\":{\"dow\":5,\"mod\":660}},{\"start\":{\"dow\":6,\"mod\":600},\"end\":{\"dow\":6,\"mod\":660}},{\"start\":{\"dow\":0,\"mod\":600},\"end\":{\"dow\":0,\"mod\":660}}]",
+        "topic": "",
+        "name": "Morning Scheduler",
+        "onPayload": "{\"state\":\"ON\",\"preset\":\"apple\"}",
+        "onPayloadType": "json",
+        "offPayload": "{\"state\":\"OFF\"}",
+        "offPayloadType": "json",
+        "onlyWhenDark": false,
+        "scheduleRndMax": 0,
+        "sunElevationThreshold": 6,
+        "sunShowElevationInStatus": false,
+        "outputfreq": "output.statechange",
+        "x": 230,
+        "y": 660,
+        "wires": [
+            [
+                "e2125cd4117bba89"
+            ]
+        ]
+    },
+    {
+        "id": "e2125cd4117bba89",
+        "type": "switch",
+        "z": "063174ec6e9df992",
+        "name": "on/off check",
+        "property": "payload.state",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "ON",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "OFF",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 430,
+        "y": 700,
+        "wires": [
+            [
+                "3c5929e718de4529"
+            ],
+            [
+                "224c35df7ab72132"
+            ]
+        ]
+    },
+    {
+        "id": "3c5929e718de4529",
+        "type": "change",
+        "z": "063174ec6e9df992",
+        "name": "Set payload to preset",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.preset",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 680,
+        "wires": [
+            [
+                "b0972592fa684d8e"
+            ]
+        ]
+    },
+    {
+        "id": "224c35df7ab72132",
+        "type": "change",
+        "z": "063174ec6e9df992",
+        "name": "Send Off",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"state\":\"OFF\"}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "zigbee2mqtt/bedroom_lights/set",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 740,
+        "wires": [
+            [
+                "d8d8aafc515e3395"
+            ]
+        ]
+    },
+    {
+        "id": "7e33c781c9acc29c",
+        "type": "comment",
+        "z": "063174ec6e9df992",
+        "name": "BROKEN FOR NOW",
+        "info": "",
+        "x": 480,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "b514f102d7093259",
+        "type": "switch",
+        "z": "063174ec6e9df992",
+        "name": "all on/off check",
+        "property": "status.rustic.state",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "OFF",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "ON",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 500,
+        "y": 1340,
+        "wires": [
+            [
+                "15fce89325bb504e"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "15fce89325bb504e",
+        "type": "switch",
+        "z": "063174ec6e9df992",
+        "name": "all off check",
+        "property": "status.train.state",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "OFF",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 990,
+        "y": 1320,
+        "wires": [
+            [
+                "e945b630437625d7"
+            ]
+        ]
+    },
+    {
+        "id": "e945b630437625d7",
+        "type": "switch",
+        "z": "063174ec6e9df992",
+        "name": "all off check",
+        "property": "status.street.state",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "OFF",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1150,
+        "y": 1320,
+        "wires": [
+            [
+                "5b4b26a2ce5ab36f"
+            ]
+        ]
+    },
+    {
+        "id": "5b4b26a2ce5ab36f",
+        "type": "change",
+        "z": "063174ec6e9df992",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"state\":\"OFF\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1320,
+        "y": 1320,
+        "wires": [
+            [
+                "718694bd3e2a5609"
+            ]
+        ]
+    },
+    {
+        "id": "af670cfd8652cb46",
+        "type": "switch",
+        "z": "063174ec6e9df992",
+        "name": "all on check",
+        "property": "status.train.state",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "ON",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 670,
+        "y": 1400,
+        "wires": [
+            [
+                "a203a9df321d9a71"
+            ]
+        ]
+    },
+    {
+        "id": "21081dbc88dc9c3b",
+        "type": "switch",
+        "z": "063174ec6e9df992",
+        "name": "all on check",
+        "property": "status.street.state",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "ON",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 670,
+        "y": 1440,
+        "wires": [
+            [
+                "a203a9df321d9a71"
+            ]
+        ]
+    },
+    {
+        "id": "a203a9df321d9a71",
+        "type": "change",
+        "z": "063174ec6e9df992",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"state\":\"ON\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1240,
+        "y": 1380,
+        "wires": [
+            [
+                "718694bd3e2a5609",
+                "e08c266995ad11b9"
+            ]
+        ]
+    },
+    {
+        "id": "9daf4a34647e3528",
+        "type": "change",
+        "z": "063174ec6e9df992",
+        "name": "dummy",
+        "rules": [],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 500,
+        "y": 1400,
+        "wires": [
+            [
+                "52b0ccc0f25812bf",
+                "af670cfd8652cb46",
+                "21081dbc88dc9c3b"
+            ]
+        ]
+    },
+    {
+        "id": "718694bd3e2a5609",
+        "type": "rbe",
+        "z": "063174ec6e9df992",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 1490,
+        "y": 1380,
+        "wires": [
+            [
+                "0d7e8fd8dde00de2"
+            ]
+        ]
+    },
+    {
+        "id": "52b0ccc0f25812bf",
+        "type": "switch",
+        "z": "063174ec6e9df992",
+        "name": "all on check",
+        "property": "status.rustic.state",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "ON",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 670,
+        "y": 1360,
+        "wires": [
+            [
+                "a203a9df321d9a71"
+            ]
+        ]
+    },
+    {
+        "id": "e08c266995ad11b9",
+        "type": "debug",
+        "z": "063174ec6e9df992",
+        "name": "debug 1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1370,
+        "y": 1440,
+        "wires": []
+    },
+    {
+        "id": "81f6e78459e4e71f",
+        "type": "light-scheduler",
+        "z": "063174ec6e9df992",
+        "settings": "7f22cd85f5354a92",
+        "events": "[{\"start\":{\"dow\":1,\"mod\":240},\"end\":{\"dow\":1,\"mod\":305}},{\"start\":{\"dow\":2,\"mod\":240},\"end\":{\"dow\":2,\"mod\":305}},{\"start\":{\"dow\":3,\"mod\":240},\"end\":{\"dow\":3,\"mod\":305}},{\"start\":{\"dow\":4,\"mod\":240},\"end\":{\"dow\":4,\"mod\":305}},{\"start\":{\"dow\":6,\"mod\":240},\"end\":{\"dow\":6,\"mod\":300}},{\"start\":{\"dow\":0,\"mod\":240},\"end\":{\"dow\":0,\"mod\":300}}]",
+        "topic": "",
+        "name": "Morning Scheduler",
+        "onPayload": "{\"state\":\"OFF\"}",
+        "onPayloadType": "json",
+        "offPayload": "{\"state\":\"OFF\"}",
+        "offPayloadType": "json",
+        "onlyWhenDark": false,
+        "scheduleRndMax": 0,
+        "sunElevationThreshold": 6,
+        "sunShowElevationInStatus": false,
+        "outputfreq": "output.statechange",
+        "x": 230,
+        "y": 740,
+        "wires": [
+            [
+                "e2125cd4117bba89"
+            ]
+        ]
+    },
+    {
+        "id": "9a0953940667d610",
+        "type": "link in",
+        "z": "f6a4f2683baf4bc6",
+        "name": "link in 1",
+        "links": [],
+        "x": 305,
+        "y": 320,
+        "wires": [
+            [
+                "9c5f28cfbf433b81"
+            ]
+        ]
+    },
+    {
+        "id": "9c5f28cfbf433b81",
+        "type": "exec",
+        "z": "f6a4f2683baf4bc6",
+        "command": "python /data/scenes/scene.py get ",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 500,
+        "y": 320,
+        "wires": [
+            [
+                "93e0bff39bfebb13"
+            ],
+            [],
+            [
+                "984f0c576a142ab9"
+            ]
+        ]
+    },
+    {
+        "id": "0df9623899c1d32e",
+        "type": "mqtt out",
+        "z": "f6a4f2683baf4bc6",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "9d2c033a530cbdeb",
+        "x": 1250,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "b7bb9b130e3d265d",
+        "type": "change",
+        "z": "f6a4f2683baf4bc6",
+        "name": "Rustic",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "zigbee2mqtt/rustic/set",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.rustic",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 930,
+        "y": 240,
+        "wires": [
+            [
+                "c6b80faf41c726bc"
+            ]
+        ]
+    },
+    {
+        "id": "93e0bff39bfebb13",
+        "type": "json",
+        "z": "f6a4f2683baf4bc6",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 750,
+        "y": 280,
+        "wires": [
+            [
+                "1229e4d95d25f5cc",
+                "9263d940daec2b82",
+                "b7bb9b130e3d265d"
+            ]
+        ]
+    },
+    {
+        "id": "1229e4d95d25f5cc",
+        "type": "change",
+        "z": "f6a4f2683baf4bc6",
+        "name": "Train",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "zigbee2mqtt/train/set",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.train",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 930,
+        "y": 280,
+        "wires": [
+            [
+                "c6b80faf41c726bc"
+            ]
+        ]
+    },
+    {
+        "id": "9263d940daec2b82",
+        "type": "change",
+        "z": "f6a4f2683baf4bc6",
+        "name": "Street",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "zigbee2mqtt/street/set",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.street",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 930,
+        "y": 320,
+        "wires": [
+            [
+                "c6b80faf41c726bc"
+            ]
+        ]
+    },
+    {
+        "id": "c6b80faf41c726bc",
+        "type": "change",
+        "z": "f6a4f2683baf4bc6",
+        "name": "Transition",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.transition",
+                "pt": "msg",
+                "to": "2",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1100,
+        "y": 280,
+        "wires": [
+            [
+                "0df9623899c1d32e"
+            ]
+        ]
+    },
+    {
+        "id": "180c4531f0e113bd",
+        "type": "ui-notification",
+        "z": "f6a4f2683baf4bc6",
+        "ui": "6a75ca1c15129b8e",
+        "position": "top right",
+        "colorDefault": true,
+        "color": "#000000",
+        "displayTime": "3",
+        "showCountdown": true,
+        "outputs": 1,
+        "allowDismiss": true,
+        "dismissText": "Close",
+        "allowConfirm": false,
+        "confirmText": "Confirm",
+        "raw": false,
+        "className": "",
+        "name": "Return values",
+        "x": 920,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "984f0c576a142ab9",
+        "type": "json",
+        "z": "f6a4f2683baf4bc6",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 750,
+        "y": 460,
+        "wires": [
+            [
+                "180c4531f0e113bd"
+            ]
+        ]
+    },
+    {
+        "id": "2d248a767b25086e",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "@flowfuse/node-red-dashboard": "1.30.2",
+            "node-red-contrib-zigbee2mqtt-devices": "0.20.0",
+            "node-red-contrib-light-scheduler": "0.0.19"
+        }
+    }
+]
